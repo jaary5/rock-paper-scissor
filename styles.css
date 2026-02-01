@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+:root {
+    --bg-outside: #b2c29d; 
+    --game-card: #fdfdf0;  
+    --text-color: #5d6d4e; 
+    --button-bg: #809671;  
+    --border-style: 2px solid #5d6d4e;
+}
+
+body {
+    background-color: var(--bg-outside);
+    font-family: 'VT323', monospace;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.character-area {
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    gap: 100px;              
+    margin-bottom: 20px;     
+}
+
+#result {
+    background-color: var(--game-card);
+    width: 450px;
+    padding:40px ;
+    border-radius: 8px;
+    border: var(--border-style);
+    text-align: center;
+    box-shadow: 8px 8px 0px rgba(0,0,0,0.1);
+}
+
+#player-score {
+    margin-right: 100px;
+}
+
+h2, #round-result {
+    text-transform: uppercase;
+    color: var(--text-color);
+    font-size: 2rem;
+}
+
+#controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 30px 0;
+}
+
+button {
+    font-family: 'VT323', monospace;
+    background-color: var(--button-bg);
+    color: white;
+    border: var(--border-style);
+    padding: 8px 20px;
+    font-size: 1.5rem;
+    border-radius: 20px; 
+    cursor: pointer;
+    transition: all 0.1s;
+    text-transform: uppercase;
+}
+
+button:hover {
+    transform: translateY(-4px);
+    background-color: #6d825f;
+    box-shadow: 0 4px 0px #4a573e;
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+#reset-btn {
+    display: block;      
+    margin: 20px auto 0; /* Centering: up->20px left/right->auto down->0 */
+    text-align: center;
+    background: transparent;
+    color: var(--text-color);
+    border: none;
+    font-size: 1.2rem;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#reset-btn:hover {
+    background: transparent;
+    box-shadow: none;
+    color: #000;
+}
+
+#music-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    transition: transform 0.15s, filter 0.15s;
+}
+
+#music-btn:hover {
+    transform: scale(1.15);
+    filter: brightness(1.2);
+}
+
+#music-btn:active {
+    transform: scale(1);
+    filter: brightness(0.9);
+}
+
+/* Score styling */
+p {
+    font-size: 1.4rem;
+    color: var(--text-color);
+}

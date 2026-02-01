@@ -13,6 +13,25 @@ const computerScoreSpan = document.querySelector('#computer-score')
 const winner = document.querySelector('#winner')
 const buttons = document.querySelectorAll('button')
 const resetButton = document.querySelector('#reset-btn')
+const click = document.querySelector('#click')
+const musicBtn = document.querySelector('#music-btn')
+const gameMusic = document.querySelector('#music')
+const gameOver = document.querySelector('#game-over')
+const victorySound = document.querySelector('#victory')
+
+let isPlaying = false;
+
+musicBtn.addEventListener('click', () => {
+    if (isPlaying) {
+        gameMusic.pause();
+        musicBtn.style.opacity = "0.6";
+    } else {
+        gameMusic.play();
+        musicBtn.style.opacity = "1";
+    }
+
+    isPlaying = !isPlaying;
+})
 
 // hide the button until game is over
 resetButton.style.display = "none";
@@ -61,9 +80,11 @@ function checkWinner() {
     if(playerScore === 5) {
         winner.textContent = "Victory! You Win!";
         resetButton.style.display = "block";
+        victorySound.play();
     } else if (computerScore === 5) {
         winner.textContent = "Gamer Over! You Lose!";
         resetButton.style.display = "block";
+        gameOver.play();
     }
 }
 
@@ -71,6 +92,9 @@ function checkWinner() {
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         playRound(button.id);
+
+        click.currentTime = 0;
+        click.play();
     });
 });
 
@@ -85,5 +109,5 @@ function resetGame() {
     resetButton.style.display = "none";
 }
 
-// Add event listener for play again
+// Add event listener for play again button
 resetButton.addEventListener('click', resetGame);
